@@ -1,0 +1,74 @@
+{
+// Default time to wait looking for an element until it is found
+"search_timeout": 20,
+
+// Take a screenshot on error by default
+"screenshot_on_error": true,
+
+// Take a screenshot on every step
+"screenshot_on_step": true,
+
+// Custom wait method to use before each step, must be defined inside extend.py
+"wait_hook": null,
+
+// Define the driver to use, unless overriden by the -d/--driver flag
+"default_browser": "chrome",
+
+// Path to the chrome driver executable. By default it points to the
+// 'drivers' folder inside the test directory.
+"chromedriver_path": "./drivers/chromedriver*",
+
+// Path to the gecko driver executable. This is used by Firefox.
+// By default it points to the 'drivers' folder inside the test directory.
+"geckodriver_path": "./drivers/geckodriver*",
+
+// Path to the ie driver executable. This is used by Internet Explorer.
+// By default it points to the 'drivers' folder inside the test directory.
+"iedriver_path": "./drivers/iedriver.exe",
+
+// URLRemote URL : the URL to use when connecting to a remote webdriver
+// for example, using selenium grid
+"remote_url": "http://selenium-hub:4444/wd/hub",
+
+// Log level to console. Options are: DEBUG, INFO, WARNING, ERROR, CRITICAL.
+// Default option is INFO
+"console_log_level": "INFO",
+
+// Log level to file. Options are: DEBUG, INFO, WARNING, ERROR, CRITICAL.
+// Default option is DEBUG
+"file_log_level": "DEBUG",
+
+// Log all events, instead of just Golem events. Default is false
+"log_all_events": false,
+
+"remote_browsers": {
+  "chrome_remote_desktop": {
+    "goog:chromeOptions": { "args": ["--window-size=1366,768"] },
+    "platform": "ANY",
+    "browserName": "chrome"
+  },
+  "chrome_remote_desktop_headless": {
+    "goog:chromeOptions": {
+      "args": ["--headless", "--disable-gpu", "--window-size=1366,768"]
+    },
+    "platform": "ANY",
+    "browserName": "chrome"
+  },
+  "chrome_remote_mobile_headless": {
+    "goog:chromeOptions": {
+      "args": [
+        "--headless",
+        "--disable-gpu",
+        "--window-size=412,732",
+        "--user-agent='Mozilla/5.0 (iPhone; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.25 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1'"
+      ]
+    },
+    "platform": "ANY",
+    "browserName": "chrome"
+  },
+  "firefox_remote_desktop": {
+    "browserName": "firefox",
+    "moz:firefoxOptions": { "args": ["--headless"] }
+  }
+}
+}

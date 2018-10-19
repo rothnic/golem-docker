@@ -1,0 +1,3 @@
+/golem-config/*
+!/golem-config/users.json
+!/golem-config/settings.json

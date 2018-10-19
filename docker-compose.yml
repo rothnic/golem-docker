@@ -1,0 +1,35 @@
+version: '3'
+services:
+  selenium-hub:
+    image: selenium/hub:3.14.0-europium
+    container_name: selenium-hub
+    ports:
+      - "4444:4444"
+    environment:
+      - GRID_TIMEOUT=30
+  chrome:
+    image: selenium/node-chrome:3.14.0-europium
+    depends_on:
+      - selenium-hub
+    volumes:
+      - /dev/shm:/dev/shm
+    environment:
+      - HUB_HOST=selenium-hub
+      - HUB_PORT=4444
+  firefox:
+    image: selenium/node-firefox:3.14.0-europium
+    depends_on:
+      - selenium-hub
+    volumes:
+      - /dev/shm:/dev/shm
+    environment:
+      - HUB_HOST=selenium-hub
+      - HUB_PORT=4444
+  golem:
+    build: ./golem-docker
+    volumes:
+      - ./golem-config:/golem
+    ports:
+      - "5000:5000"
+    depends_on:
+      - selenium-hub
