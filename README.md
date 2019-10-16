@@ -10,6 +10,8 @@ cd golem-docker
 docker-compose up
 ```
 
+open http://localhost:5555
+
 ## Notes
 
 ### Project Folder
