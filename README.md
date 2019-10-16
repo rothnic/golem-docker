@@ -11,6 +11,7 @@ docker-compose up
 ```
 
 open http://localhost:5555
+login with user: `admin`, passoword: `admin`
 
 ## Notes
 
